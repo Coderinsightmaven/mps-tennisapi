@@ -17,7 +17,7 @@ COPY . .
 RUN yarn build
 
 # Remove dev dependencies
-RUN yarn install --frozen-lockfile --production=true && yarn cache clean
+RUN yarn install && yarn cache clean
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs
