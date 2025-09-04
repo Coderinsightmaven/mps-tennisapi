@@ -17,7 +17,7 @@ services:
     labels:
       # Traefik configuration
       - "traefik.enable=true"
-      - "traefik.docker.network=arr_network"
+      - "traefik.docker.network=arrstack_arr_network"
       
       # HTTPS Router
       - "traefik.http.routers.tennis-api.rule=Host(`${TENNIS_API_DOMAIN}`)"
@@ -52,7 +52,7 @@ services:
       start_period: 40s
     
     networks:
-      - arr_network
+      - arrstack_arr_network
     
     deploy:
       resources:
