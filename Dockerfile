@@ -1,38 +1,24 @@
-# Use Node.js LTS Alpine image
-FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app
+# Use the official Node.js image as the base image
+FROM node:22
 
-# Copy package files
-COPY package.json yarn.lock ./
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-# Install dependencies
-RUN yarn install --frozen-lockfile --production=false
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# Copy source code
+# Install the application dependencies
+RUN npm install
+
+# Copy the rest of the application files
 COPY . .
 
-# Build the application
-RUN yarn build
+# Build the NestJS application
+RUN npm run build
 
-# Remove dev dependencies
-RUN yarn install && yarn cache clean
-
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nestjs -u 1001
-
-# Change ownership of the app directory
-RUN chown -R nestjs:nodejs /app
-USER nestjs
-
-# Expose port
+# Expose the application port
 EXPOSE 3000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node healthcheck.js
-
-# Start the application
+# Command to run the application
 CMD ["node", "dist/main"]

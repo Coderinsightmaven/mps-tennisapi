@@ -21,8 +21,6 @@
     "generate:keys": "node scripts/generate-api-key.js",
     "docker:build": "docker build -t tennis-scoreboard-api .",
     "docker:run": "docker run -p 3000:3000 tennis-scoreboard-api",
-    "deploy": "./scripts/deploy.sh",
-    "deploy:prod": "docker-compose --profile production up -d"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
