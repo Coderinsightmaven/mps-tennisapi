@@ -1,0 +1,12 @@
+# Tennis Scoreboard API - Portainer Environment Variables
+# Copy these into Portainer's Environment Variables section when creating the stack
+
+TENNIS_API_DOMAIN=tennis-api.yourdomain.com
+TENNIS_API_KEYS=mps_dev_your_dev_key_here,mps_prod_your_prod_key_here
+TENNIS_CORS_ORIGIN=https://yourdomain.com,https://www.yourdomain.com
+TZ=America/New_York
+
+# Note: Make sure these match your existing environment variables:
+# - Your Traefik network should be named 'arr_network'
+# - Your Traefik cert resolver should be named 'myresolver'
+# - Your domain should have DNS pointing to your server
