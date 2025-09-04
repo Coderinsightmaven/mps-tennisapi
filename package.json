@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "generate:keys": "node scripts/generate-api-key.js",
     "docker:build": "docker build -t tennis-scoreboard-api .",
-    "docker:run": "docker run -p 3000:3000 tennis-scoreboard-api",
+    "docker:run": "docker run -p 3000:3000 tennis-scoreboard-api"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

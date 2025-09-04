@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=3005
       - API_KEYS=${TENNIS_API_KEYS}
       - CORS_ORIGIN=${TENNIS_CORS_ORIGIN:-*}
       - CORS_CREDENTIALS=true
